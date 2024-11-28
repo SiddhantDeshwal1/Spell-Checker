@@ -73,7 +73,7 @@ Simply follow these steps, and the program will be up and running on your local 
 
 ## 🎥 Demo Video
 
-[![Spell Checker Demo](https://img.youtube.com/vi/wLQNCXlapXg/0.jpg)](https://youtu.be/wLQNCXlapXg)
+https://github.com/user-attachments/assets/1ec784ed-a645-403a-ab23-71f1e28458d8
 
 ## ✨ Conclusion
 
