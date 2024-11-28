@@ -1,4 +1,4 @@
-# 🧙‍♂️ Spell Checker
+#  Spell Checker
 
 This **Spell Checker** is a fast and efficient tool designed to check and correct spelling mistakes in words. Built using **C++**, it employs advanced algorithms and data structures to ensure high performance and accuracy in identifying and suggesting word corrections.
 
@@ -31,7 +31,7 @@ For example:
 
 The Levenshtein Distance for this transformation is 3 (because three edits are required).
 
-### 🌳 Trie Data Structure:
+### Trie Data Structure:
 A **Trie** is a tree-like data structure specifically designed to store strings in an efficient way. Each node in the Trie represents a character of a word, and the tree structure allows for shared prefixes among words. This leads to reduced memory usage and faster lookups.
 
 The **Trie** data structure enables:
