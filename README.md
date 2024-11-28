@@ -71,6 +71,10 @@ To get started with the Spell Checker, follow these steps:
 
 Simply follow these steps, and the program will be up and running on your local machine.
 
+## 🎥 Demo Video
+
+[![Spell Checker Demo](https://img.youtube.com/vi/wLQNCXlapXg/0.jpg)](https://youtu.be/wLQNCXlapXg)
+
 ## ✨ Conclusion
 
 This project has been a great learning experience. By combining the **Levenshtein Distance** algorithm and the **Trie** data structure, I was able to create a highly efficient and fast spell checker. The project not only improved my understanding of algorithms and data structures but also allowed me to practice and refine my C++ programming skills.
