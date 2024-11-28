@@ -14,7 +14,7 @@
 #include <unordered_map>
 #include <vector>
 
-using namespace std ;
+using namespace std;
 
 int levenshteinDistance(const string &str1, const string &str2);
 

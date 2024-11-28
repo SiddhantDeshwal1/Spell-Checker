@@ -14,78 +14,85 @@
 #include <vector>
 #include <bits/stdc++.h>
 
-using namespace std ;
+using namespace std;
 
-vector<string> loadDictionary(const string &filename) {
+vector<string> loadDictionary(const string &filename)
+{
 
-  vector<string> dictionary ;
+  vector<string> dictionary;
 
-  ifstream file(filename) ;
-  string word ;
+  ifstream file(filename);
+  string word;
 
-  if (file.is_open()) {
+  if (file.is_open())
+  {
 
-    while (getline(file, word)) {
+    while (getline(file, word))
+    {
 
-      dictionary.push_back(word) ;
+      dictionary.push_back(word);
     }
 
-    file.close() ;
-        
-  } 
-  else {
+    file.close();
+  }
+  else
+  {
 
     // failed to open file
-    cerr << "Failed to open dictionary file!" << endl ;
+    cerr << "Failed to open dictionary file!" << endl;
   }
 
-  return dictionary ;
+  return dictionary;
 }
 
 // Function to find the closest match for a given word
-pair<int,string> findClosestWord(string &input , vector<string> &dictionary) {
-    
-    int minDistance = 1e9 ;
-    pair<int,string> closestWord ;
+pair<int, string> findClosestWord(string &input, vector<string> &dictionary)
+{
 
-    for (const std::string &word : dictionary) {
-    
-        int distance = levenshteinDistance(input, word);
+  int minDistance = 1e9;
+  pair<int, string> closestWord;
 
-        if (distance < minDistance) {
+  for (const std::string &word : dictionary)
+  {
 
-            minDistance = distance ;
-            closestWord.second = word ;
+    int distance = levenshteinDistance(input, word);
+
+    if (distance < minDistance)
+    {
+
+      minDistance = distance;
+      closestWord.second = word;
     }
   }
 
-    closestWord.first = minDistance ;
+  closestWord.first = minDistance;
 
-  return closestWord ;
+  return closestWord;
 }
 
-int main() {
+int main()
+{
 
-  string inputWord ;
+  string inputWord;
 
-  cout << "Enter a word to check: " ;
+  cout << "Enter a word to check: ";
   cin >> inputWord;
 
   // Load the dictionary
-  vector<string> dictionary = loadDictionary("dictionary.txt") ;
+  vector<string> dictionary = loadDictionary("dictionary.txt");
 
-   // Find the closest match
-  pair<int,string> closestWord = findClosestWord(inputWord, dictionary) ;
+  // Find the closest match
+  pair<int, string> closestWord = findClosestWord(inputWord, dictionary);
 
-    if (closestWord.first == 0) 
-    {
-        cout << "Word Found Succesfully\n" ;
-    }
-    else 
-    {
-        cout << "Word Not Found !\n" ;
-        cout << "Did you mean : " << closestWord.second << " ?" << endl ;
-    }
+  if (closestWord.first == 0)
+  {
+    cout << "Word Found Succesfully\n";
+  }
+  else
+  {
+    cout << "Word Not Found !\n";
+    cout << "Did you mean : " << closestWord.second << " ?" << endl;
+  }
 
-  return 0 ;
+  return 0;
 }

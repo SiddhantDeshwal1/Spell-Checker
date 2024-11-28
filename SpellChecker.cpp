@@ -15,29 +15,35 @@
 
 SpellChecker::SpellChecker() {}
 
-void SpellChecker::loadDictionary(const vector<string> &words) {
+void SpellChecker::loadDictionary(const vector<string> &words)
+{
 
-  for (const auto &word : words) {
+  for (const auto &word : words)
+  {
 
-    trie.insert(word) ;
+    trie.insert(word);
   }
 }
 
-bool SpellChecker::checkSpelling(const string &word) {
-  return trie.search(word) ;
+bool SpellChecker::checkSpelling(const string &word)
+{
+  return trie.search(word);
 }
 
-vector<string> SpellChecker::getSuggestions(const std::string &word) {
+vector<string> SpellChecker::getSuggestions(const std::string &word)
+{
 
-vector<string> suggestions = trie.suggest(word.substr(0, 3)) ;
-vector<string> bestSuggestions ;
+  vector<string> suggestions = trie.suggest(word.substr(0, 3));
+  vector<string> bestSuggestions;
 
-  for (const auto &suggestion : suggestions) {
+  for (const auto &suggestion : suggestions)
+  {
 
-    if (levenshteinDistance(word, suggestion) <= 2) {
+    if (levenshteinDistance(word, suggestion) <= 2)
+    {
 
       bestSuggestions.push_back(suggestion);
     }
   }
-  return bestSuggestions ;
+  return bestSuggestions;
 }

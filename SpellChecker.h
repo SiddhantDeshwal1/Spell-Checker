@@ -16,18 +16,18 @@
 #include <unordered_map>
 #include <vector>
 
-class SpellChecker {
+class SpellChecker
+{
 
 public:
+  SpellChecker();
 
-  SpellChecker() ;
+  void loadDictionary(const vector<string> &words);
+  bool checkSpelling(const string &word);
+  vector<string> getSuggestions(const string &word);
 
-  void loadDictionary(const vector<string> &words) ;
-  bool checkSpelling(const string &word) ;
-  vector<string> getSuggestions(const string &word) ;
-
-private :
-  Trie trie ;
+private:
+  Trie trie;
 };
 
 #endif
