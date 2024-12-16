@@ -1,6 +1,7 @@
 #include "LevenshteinDistance.h"
 
 #include <algorithm>
+#include <bits/stdc++.h>
 #include <chrono>
 #include <climits>
 #include <cmath>
@@ -12,31 +13,25 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <bits/stdc++.h>
 
 using namespace std;
 
-vector<string> loadDictionary(const string &filename)
-{
+vector<string> loadDictionary(const string &filename) {
 
   vector<string> dictionary;
 
   ifstream file(filename);
   string word;
 
-  if (file.is_open())
-  {
+  if (file.is_open()) {
 
-    while (getline(file, word))
-    {
+    while (getline(file, word)) {
 
       dictionary.push_back(word);
     }
 
     file.close();
-  }
-  else
-  {
+  } else {
 
     // failed to open file
     cerr << "Failed to open dictionary file!" << endl;
@@ -46,19 +41,16 @@ vector<string> loadDictionary(const string &filename)
 }
 
 // Function to find the closest match for a given word
-pair<int, string> findClosestWord(string &input, vector<string> &dictionary)
-{
+pair<int, string> findClosestWord(string &input, vector<string> &dictionary) {
 
   int minDistance = 1e9;
   pair<int, string> closestWord;
 
-  for (const std::string &word : dictionary)
-  {
+  for (const std::string &word : dictionary) {
 
     int distance = levenshteinDistance(input, word);
 
-    if (distance < minDistance)
-    {
+    if (distance < minDistance) {
 
       minDistance = distance;
       closestWord.second = word;
@@ -70,8 +62,7 @@ pair<int, string> findClosestWord(string &input, vector<string> &dictionary)
   return closestWord;
 }
 
-int main()
-{
+int main() {
 
   string inputWord;
 
@@ -84,12 +75,9 @@ int main()
   // Find the closest match
   pair<int, string> closestWord = findClosestWord(inputWord, dictionary);
 
-  if (closestWord.first == 0)
-  {
+  if (closestWord.first == 0) {
     cout << "Word Found Succesfully\n";
-  }
-  else
-  {
+  } else {
     cout << "Word Not Found !\n";
     cout << "Did you mean : " << closestWord.second << " ?" << endl;
   }
