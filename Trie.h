@@ -21,16 +21,16 @@ public:
 
 class Trie
 {
-public:
-  Trie();
-  void insert(const std::string &word);
-  bool search(const std::string &word);
-  std::vector<std::string> suggest(const std::string &prefix);
+  public:
+    Trie();
+    void insert(const std::string &word);
+    bool search(const std::string &word);
+    std::vector<std::string> suggest(const std::string &prefix);
 
-private:
-  TrieNode *root;
-  int charToIndex(char ch); // Declare helper function here
-  void suggestHelper(TrieNode *node, std::string currentWord, std::vector<std::string> &suggestions);
+  private:
+    TrieNode *root;
+    int charToIndex(char ch); // Declare helper function here
+    void suggestHelper(TrieNode *node, std::string currentWord, std::vector<std::string> &suggestions);
 };
 
 #endif

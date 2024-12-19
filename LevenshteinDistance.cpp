@@ -13,38 +13,37 @@
 #include <unordered_map>
 #include <vector>
 
-int levenshteinDistance(const string &str1, const string &str2)
+int levenshteinTwoMatrixRows(const string &str1, const string &str2)
 {
+    int m = str1.length();
+    int n = str2.length();
 
-  int m = str1.size();
-  int n = str2.size();
-
-  vector<vector<int>> dp(m + 1, vector<int>(n + 1));
-
-  for (int i = 0; i <= m; i++)
-  {
+    vector<int> prevRow(n + 1, 0);
+    vector<int> currRow(n + 1, 0);
 
     for (int j = 0; j <= n; j++)
     {
-
-      if (i == 0)
-      {
-
-        dp[i][j] = j;
-      }
-      else if (j == 0)
-      {
-
-        dp[i][j] = i;
-      }
-      else
-      {
-
-        int cost = (str1[i - 1] == str2[j - 1]) ? 0 : 1;
-        dp[i][j] = min({dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost});
-      }
+        prevRow[j] = j;
     }
-  }
 
-  return dp[m][n];
+    for (int i = 1; i <= m; i++)
+    {
+        currRow[0] = i;
+
+        for (int j = 1; j <= n; j++)
+        {
+            if (str1[i - 1] == str2[j - 1])
+            {
+                currRow[j] = prevRow[j - 1];
+            }
+            else
+            {
+                currRow[j] = 1 + min(currRow[j - 1],min(prevRow[j],prevRow[j - 1]));
+            }
+        }
+
+        prevRow = currRow;
+    }
+
+    return currRow[n];
 }
